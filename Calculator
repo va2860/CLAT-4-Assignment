@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+
+int main(int argc, char *argv[])
+{
+  float firstnum;
+  float secondnum;
+  char operator;
+  float Output;
+  
+  printf("Enter the equation as:- FirstNumber Operator SecondNumber\nEnter calculation:-\n");
+  scanf("%f %c %f", &firstnum, &operator, & secondnum);
+
+  switch(operator)
+    {
+    case '/': Output = firstnum/secondnum;
+      break;
+    case '*': Output = firstnum*secondnum;
+      break;
+    case '+': Output = firstnum+secondnum;
+      break;
+    case '-': Output = firstnum-secondnum;
+      break;
+    case '^': Output = pow(firstnum,secondnum);
+      break;
+    case '#': Output = sqrt(secondnum);
+      break;
+    default: goto fail;
+    }
+  printf("%.9g %c %.9g =  %.6g\n\n",firstnum,operator,secondnum,Output);
+  goto exit;
+ fail:
+  printf("Invalid Operator Entered\n");
+ exit:
+  return 0;
